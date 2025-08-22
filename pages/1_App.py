@@ -42,8 +42,8 @@ df.drop('Volume',axis=1,inplace=True)
 
 text2 = """
 Say 
-1. Price is 768 and you select nearest 5
-2. 768 is converted to 770
+1. Price is 24768 and you select 25 [nearest]
+2. 24768 is converted to 24775
 3. and so on for the rest of the multiples
 """
 nearest = st.radio("Select price level multiple of : ",options=[25,50,100,500],
