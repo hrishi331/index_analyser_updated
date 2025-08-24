@@ -86,6 +86,7 @@ def classes(i):
 data['Class'] = data['count'].apply(classes)
 
 current_price = df[d[olhc]].iloc[-1]
+st.write(current_price)
 
 if olhc == 'Low':
     data = data[data['Low']<current_price]
