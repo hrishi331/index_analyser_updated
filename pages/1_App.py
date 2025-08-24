@@ -89,9 +89,9 @@ current_price = df[d[olhc]].iloc[-1]
 st.write(current_price)
 
 if olhc == 'Low':
-    data = data[data['Low']<current_price]
+    data = data[data[d[olhc]<current_price]
 elif olhc == 'High':
-    data = data[data['High']>current_price]
+    data = data[data[d[olhc]>current_price]
 else :
     pass
 
