@@ -87,18 +87,12 @@ data['Class'] = data['count'].apply(classes)
 
 current_price = df[d[olhc]].iloc[-1]
 
-st.write(data)
-
-st.write(current_price)
-
 if olhc == 'Supports':
     data = data[data['Low']<current_price]
 elif olhc == 'Resistances':
     data = data[data['High']>current_price]
 else :
     pass
-
-st.write(data)
 
 text3 = """
 1. This show how important the level is.
