@@ -91,9 +91,9 @@ st.write(data)
 
 st.write(current_price)
 
-if olhc == 'Low':
+if olhc == 'Supports':
     data = data[data['Low']<current_price]
-elif olhc == 'High':
+elif olhc == 'Resistances':
     data = data[data['High']>current_price]
 else :
     pass
