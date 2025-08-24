@@ -95,6 +95,8 @@ elif olhc == 'High':
 else :
     pass
 
+st.write(data)
+
 text3 = """
 1. This show how important the level is.
 2. This level can be resistance,support [based on viz. high and low] 
