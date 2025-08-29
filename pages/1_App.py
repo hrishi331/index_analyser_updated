@@ -2,7 +2,7 @@
 import pandas as pd
 import yfinance as yf
 import streamlit as st
-from datetime import datetime
+from datetime import datetime,date,timedelta
 import numpy as np
 
 # Header
@@ -37,6 +37,19 @@ df = yf.download(tickers=Index[script],
                  multi_level_index=False,
                  interval=timeframe,
                  ignore_tz=True)
+
+df1 = yf.download(tickers=Index[script],
+                  start=datetime.strftime(date.today(),format="%Y-%m-%d"),
+                  end = datetime.strftime((date.today()+timedelta(1)),format="%Y-%m-%d"),
+                  multi_level_index=False,
+                  ignore_tz=True,
+                  interval=timeframe
+                  )
+
+current_high = df1['High'].iloc[-1]
+current_low = df1['Low'].iloc[-1]
+
+
 
 df.drop('Volume',axis=1,inplace=True)
 
@@ -88,9 +101,9 @@ data['Class'] = data['count'].apply(classes)
 current_price = df[d[olhc]].iloc[-1]
 
 if olhc == 'Supports':
-    data = data[data['Low']<current_price]
+    data = data[data['Low']<current_low]
 elif olhc == 'Resistances':
-    data = data[data['High']>current_price]
+    data = data[data['High']>current_high]
 else :
     pass
 
